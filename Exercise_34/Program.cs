@@ -5,15 +5,18 @@
 int size = ReadInt("Введите размер массива: ");
 int[] numbers = new int[size];
 
-FillArrayRandomNumbers(numbers, 100, 1000);
-WriteArray(numbers);
+for (int i = 0; i < numbers.Length; i++)
+{
+    numbers[i] = new Random().Next(100, 1000);
+    Console.Write(numbers[i] + " ");
+}
 
-int evenNumbers(int[] array)
+int evenNumbers(int[] numbers)
 {
     int result = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < numbers.Length; i++)
     {
-        if (array[i] % 2 == 0)
+        if (numbers[i] % 2 == 0)
         {
             result++;
         }
@@ -22,24 +25,7 @@ int evenNumbers(int[] array)
 }
 
 int result = evenNumbers(numbers);
-Console.WriteLine(result);
-
-void FillArrayRandomNumbers(int[] array, int min, int max)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = new Random().Next(min, max);
-    }
-}
-
-void WriteArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
-}
+Console.WriteLine($"\n{result}");
 
 int ReadInt(string message)
 {
